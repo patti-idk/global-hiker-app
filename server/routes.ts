@@ -2,7 +2,10 @@
 import type { Express } from "express";
 import type { Server } from "http";
 import { storage } from "./storage";
+import { db } from "./db";
 import { api } from "@shared/routes";
+import { companions as companionsTable } from "@shared/schema";
+import { eq } from "drizzle-orm";
 import { z } from "zod";
 
 export async function registerRoutes(
@@ -893,10 +896,42 @@ async function seedDatabase() {
   }
 
   const companions = await storage.getCompanions();
+
+  // 同步旅伴資料（可重複執行、保持一致）
+  // - 刪除：小明
+  // - 更名：小華 -> 鄺妹
+  // - 更名：小美 -> 小豬
+  const hasName = (name: string) => companions.some((c) => c.name === name);
+
+  if (hasName("小明")) {
+    await db.delete(companionsTable).where(eq(companionsTable.name, "小明"));
+  }
+
+  if (hasName("小華")) {
+    await db
+      .update(companionsTable)
+      .set({ name: "鄺妹", avatarUrl: "https://i.pravatar.cc/150?u=kuangmei" })
+      .where(eq(companionsTable.name, "小華"));
+  } else if (!hasName("鄺妹") && companions.length === 0) {
+    // 只有在完全沒 seed 過時才補建（避免誤新增）
+    await storage.createCompanion({ name: "鄺妹", avatarUrl: "https://i.pravatar.cc/150?u=kuangmei" });
+  }
+
+  if (hasName("小美")) {
+    await db
+      .update(companionsTable)
+      .set({ name: "小豬", avatarUrl: "https://i.pravatar.cc/150?u=xiaozhu" })
+      .where(eq(companionsTable.name, "小美"));
+  } else if (!hasName("小豬") && companions.length === 0) {
+    await storage.createCompanion({ name: "小豬", avatarUrl: "https://i.pravatar.cc/150?u=xiaozhu" });
+  }
+
+  // 若 DB 原本完全沒有旅伴，補齊預設名單（已是新版）
   if (companions.length === 0) {
     console.log("Seeding companions...");
-    await storage.createCompanion({ name: "小明", avatarUrl: "https://i.pravatar.cc/150?u=xiaoming" });
-    await storage.createCompanion({ name: "小華", avatarUrl: "https://i.pravatar.cc/150?u=xiaohua" });
-    await storage.createCompanion({ name: "小美", avatarUrl: "https://i.pravatar.cc/150?u=xiaomei" });
+    // 這裡不再建立「小明」
+    // 以新版名稱建立，若上面 else-if 已建立則不重複（理論上不會走到這裡）
+    await storage.createCompanion({ name: "鄺妹", avatarUrl: "https://i.pravatar.cc/150?u=kuangmei" });
+    await storage.createCompanion({ name: "小豬", avatarUrl: "https://i.pravatar.cc/150?u=xiaozhu" });
   }
 }

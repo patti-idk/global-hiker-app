@@ -42,7 +42,7 @@ export default function Home() {
             className="max-w-3xl"
           >
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/90 backdrop-blur-sm text-white text-xs font-bold uppercase tracking-widest mb-6 border border-white/10">
-              <Globe size={14} /> 全球探險 2024
+              <Globe size={14} /> 全球探險 2026 及未來
             </div>
             
             <h1 className="text-5xl md:text-8xl text-white font-display mb-6 leading-[0.9] text-shadow-lg">

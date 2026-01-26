@@ -10,8 +10,9 @@
     <header class="header">
         <div class="container">
             <div class="logo">
-                <span class="logo-icon">🏔️</span>
+                <span class="logo-icon">🗺️</span>
                 <h1>全球健行探索</h1>
+                <span class="logo-subtitle">Global Hiker</span>
             </div>
             <nav class="nav">
                 <a href="#home" class="nav-link">首頁</a>
@@ -24,36 +25,71 @@
     <main>
         <section class="hero" id="home">
             <div class="hero-overlay"></div>
+            <div class="hero-pattern"></div>
             <div class="hero-content">
-                <h2 class="hero-title">探索世界最美的健行路線</h2>
-                <p class="hero-subtitle">從高山到海岸，從熱帶雨林到極地冰川，發現屬於你的健行冒險</p>
-                <button class="cta-button" onclick="scrollToRoutes()">開始探索</button>
+                <div class="hero-badge">🌍 探索全球</div>
+                <h2 class="hero-title">踏上你的冒險之旅</h2>
+                <p class="hero-subtitle">從高山到海岸，從熱帶雨林到極地冰川<br>發現屬於你的健行冒險，每一步都是新的開始</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">精選路線</span>
+                    </div>
+                    <div class="stat-divider">|</div>
+                    <div class="stat-item">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">大洲探索</span>
+                    </div>
+                    <div class="stat-divider">|</div>
+                    <div class="stat-item">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">無限可能</span>
+                    </div>
+                </div>
+                <button class="cta-button" onclick="scrollToRoutes()">
+                    <span>開始探索</span>
+                    <span class="button-icon">→</span>
+                </button>
+            </div>
+            <div class="scroll-indicator">
+                <div class="scroll-arrow"></div>
             </div>
         </section>
 
         <section class="features">
             <div class="container">
-                <h2 class="section-title">為什麼選擇健行？</h2>
+                <div class="section-header">
+                    <span class="section-badge">為什麼選擇健行？</span>
+                    <h2 class="section-title">踏上冒險的理由</h2>
+                </div>
                 <div class="features-grid">
                     <div class="feature-card">
-                        <div class="feature-icon">🌲</div>
+                        <div class="feature-icon-wrapper">
+                            <div class="feature-icon">🌲</div>
+                        </div>
                         <h3>親近自然</h3>
-                        <p>遠離城市喧囂，沉浸在大自然的懷抱中</p>
+                        <p>遠離城市喧囂，沉浸在大自然的懷抱中，感受最純粹的生命力</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">💪</div>
+                        <div class="feature-icon-wrapper">
+                            <div class="feature-icon">💪</div>
+                        </div>
                         <h3>強健體魄</h3>
-                        <p>提升心肺功能，增強肌肉力量與耐力</p>
+                        <p>提升心肺功能，增強肌肉力量與耐力，挑戰自己的極限</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">🧘</div>
+                        <div class="feature-icon-wrapper">
+                            <div class="feature-icon">🧘</div>
+                        </div>
                         <h3>心靈放鬆</h3>
-                        <p>減輕壓力，獲得內心的平靜與滿足</p>
+                        <p>減輕壓力，獲得內心的平靜與滿足，重新找回自我</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">🌍</div>
+                        <div class="feature-icon-wrapper">
+                            <div class="feature-icon">🌍</div>
+                        </div>
                         <h3>探索世界</h3>
-                        <p>發現隱藏的秘境，體驗不同文化與風景</p>
+                        <p>發現隱藏的秘境，體驗不同文化與風景，擴展視野</p>
                     </div>
                 </div>
             </div>
@@ -61,7 +97,11 @@
 
         <section class="routes" id="routes">
             <div class="container">
-                <h2 class="section-title">精選健行路線</h2>
+                <div class="section-header">
+                    <span class="section-badge">探索路線</span>
+                    <h2 class="section-title">全球精選健行路線</h2>
+                    <p class="section-description">從簡單到專家級，找到適合你的冒險路線</p>
+                </div>
                 <div class="routes-grid" id="routesContainer">
                     <!-- 路線卡片將由 JavaScript 動態載入 -->
                 </div>

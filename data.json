@@ -1,0 +1,174 @@
+{
+  "routes": [
+    {
+      "id": 1,
+      "name": "台灣玉山主峰",
+      "location": "台灣，南投縣",
+      "country": "台灣",
+      "continent": "亞洲",
+      "distance": "10.9 公里",
+      "duration": "2 天",
+      "elevation": "3952 公尺",
+      "difficulty": "hard",
+      "description": "台灣最高峰，是許多健行愛好者的夢想路線。沿途可欣賞高山植物和壯麗的日出雲海。",
+      "bestSeason": "4-10月",
+      "highlights": ["日出雲海", "高山植物", "台灣最高峰"]
+    },
+    {
+      "id": 2,
+      "name": "日本富士山吉田路線",
+      "location": "日本，山梨縣",
+      "country": "日本",
+      "continent": "亞洲",
+      "distance": "14 公里",
+      "duration": "1-2 天",
+      "elevation": "3776 公尺",
+      "difficulty": "medium",
+      "description": "日本最著名的山峰，每年吸引數十萬登山者。吉田路線是最受歡迎的路線之一。",
+      "bestSeason": "7-9月",
+      "highlights": ["御來光", "火山口", "五合目"]
+    },
+    {
+      "id": 3,
+      "name": "尼泊爾珠穆朗瑪峰基地營",
+      "location": "尼泊爾，薩加瑪塔國家公園",
+      "country": "尼泊爾",
+      "continent": "亞洲",
+      "distance": "130 公里",
+      "duration": "12-14 天",
+      "elevation": "5364 公尺",
+      "difficulty": "expert",
+      "description": "世界最高峰的基地營路線，穿越喜馬拉雅山脈，體驗藏族文化和壯麗的雪山風光。",
+      "bestSeason": "3-5月, 9-11月",
+      "highlights": ["珠穆朗瑪峰", "喜馬拉雅山脈", "藏族文化"]
+    },
+    {
+      "id": 4,
+      "name": "美國大峽谷南緣步道",
+      "location": "美國，亞利桑那州",
+      "country": "美國",
+      "continent": "北美洲",
+      "distance": "19 公里",
+      "duration": "1 天",
+      "elevation": "2134 公尺",
+      "difficulty": "hard",
+      "description": "世界七大自然奇觀之一，沿著科羅拉多河蜿蜒而下，欣賞億萬年形成的壯麗峽谷。",
+      "bestSeason": "3-5月, 9-11月",
+      "highlights": ["大峽谷", "科羅拉多河", "地質奇觀"]
+    },
+    {
+      "id": 5,
+      "name": "秘魯印加古道",
+      "location": "秘魯，庫斯科",
+      "country": "秘魯",
+      "continent": "南美洲",
+      "distance": "43 公里",
+      "duration": "4 天",
+      "elevation": "4200 公尺",
+      "difficulty": "hard",
+      "description": "通往馬丘比丘的古老步道，穿越安地斯山脈，體驗印加文明的歷史與文化。",
+      "bestSeason": "5-9月",
+      "highlights": ["馬丘比丘", "印加遺址", "安地斯山脈"]
+    },
+    {
+      "id": 6,
+      "name": "瑞士馬特洪峰步道",
+      "location": "瑞士，策馬特",
+      "country": "瑞士",
+      "continent": "歐洲",
+      "distance": "10 公里",
+      "duration": "1 天",
+      "elevation": "4478 公尺",
+      "difficulty": "expert",
+      "description": "阿爾卑斯山最著名的山峰之一，獨特的金字塔形狀成為瑞士的象徵。",
+      "bestSeason": "6-9月",
+      "highlights": ["馬特洪峰", "阿爾卑斯山", "冰川"]
+    },
+    {
+      "id": 7,
+      "name": "紐西蘭米爾福德步道",
+      "location": "紐西蘭，南島",
+      "country": "紐西蘭",
+      "continent": "大洋洲",
+      "distance": "53.5 公里",
+      "duration": "4 天",
+      "elevation": "1154 公尺",
+      "difficulty": "medium",
+      "description": "被譽為世界最美步道之一，穿越原始雨林、瀑布和壯麗的山谷。",
+      "bestSeason": "10-4月",
+      "highlights": ["原始雨林", "瀑布", "峽灣"]
+    },
+    {
+      "id": 8,
+      "name": "冰島勞加維古爾步道",
+      "location": "冰島，雷克雅維克",
+      "country": "冰島",
+      "continent": "歐洲",
+      "distance": "55 公里",
+      "duration": "2-4 天",
+      "elevation": "500 公尺",
+      "difficulty": "medium",
+      "description": "穿越火山地形的獨特步道，體驗地熱溫泉、間歇泉和壯麗的火山景觀。",
+      "bestSeason": "6-8月",
+      "highlights": ["地熱溫泉", "火山景觀", "極地風光"]
+    },
+    {
+      "id": 9,
+      "name": "澳洲藍山國家公園步道",
+      "location": "澳洲，新南威爾斯州",
+      "country": "澳洲",
+      "continent": "大洋洲",
+      "distance": "12 公里",
+      "duration": "1 天",
+      "elevation": "1100 公尺",
+      "difficulty": "easy",
+      "description": "探索世界遺產藍山國家公園，欣賞桉樹林、瀑布和壯觀的懸崖景觀。",
+      "bestSeason": "全年",
+      "highlights": ["藍山", "桉樹林", "瀑布"]
+    },
+    {
+      "id": 10,
+      "name": "坦尚尼亞乞力馬扎羅山",
+      "location": "坦尚尼亞，乞力馬扎羅國家公園",
+      "country": "坦尚尼亞",
+      "continent": "非洲",
+      "distance": "70 公里",
+      "duration": "5-7 天",
+      "elevation": "5895 公尺",
+      "difficulty": "expert",
+      "description": "非洲最高峰，從熱帶雨林到冰川的獨特生態系統，是七大洲最高峰之一。",
+      "bestSeason": "1-3月, 6-10月",
+      "highlights": ["非洲最高峰", "多樣生態", "冰川"]
+    }
+  ],
+  "continents": [
+    "亞洲",
+    "北美洲",
+    "南美洲",
+    "歐洲",
+    "非洲",
+    "大洋洲"
+  ],
+  "difficulties": [
+    {
+      "level": "easy",
+      "label": "簡單",
+      "description": "適合初學者，路徑平坦，無需特殊裝備"
+    },
+    {
+      "level": "medium",
+      "label": "中等",
+      "description": "需要一定體力，可能有陡坡，建議有健行經驗"
+    },
+    {
+      "level": "hard",
+      "label": "困難",
+      "description": "需要良好體能，可能有技術性路段，建議有豐富經驗"
+    },
+    {
+      "level": "expert",
+      "label": "專家",
+      "description": "極具挑戰性，需要專業技能和裝備，僅適合經驗豐富的健行者"
+    }
+  ]
+}

@@ -1,53 +1,46 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { api, buildUrl, type InsertRoute } from "@shared/routes";
+import type { Route } from "@shared/schema";
+import type { InsertRoute } from "@shared/schema";
 
-// GET /api/routes
+type RoutesJson = {
+  routes: Route[];
+};
+
+async function fetchLocalRoutes(): Promise<Route[]> {
+  const res = await fetch("/data.json", { cache: "no-cache" });
+  if (!res.ok) throw new Error("Failed to fetch local data.json");
+  const json = (await res.json()) as RoutesJson;
+  if (!json || !Array.isArray(json.routes)) return [];
+  return json.routes;
+}
+
+// GET /data.json (local, for Vercel/static)
 export function useRoutes() {
   return useQuery({
-    queryKey: [api.routes.list.path],
-    queryFn: async () => {
-      const res = await fetch(api.routes.list.path, { credentials: "include" });
-      if (!res.ok) throw new Error('Failed to fetch routes');
-      return api.routes.list.responses[200].parse(await res.json());
-    },
+    queryKey: ["local-routes"],
+    queryFn: fetchLocalRoutes,
   });
 }
 
-// GET /api/routes/:id
+// GET /data.json then find by id
 export function useRoute(id: number) {
   return useQuery({
-    queryKey: [api.routes.get.path, id],
+    queryKey: ["local-route", id],
     queryFn: async () => {
-      const url = buildUrl(api.routes.get.path, { id });
-      const res = await fetch(url, { credentials: "include" });
-      if (res.status === 404) return null;
-      if (!res.ok) throw new Error('Failed to fetch route');
-      return api.routes.get.responses[200].parse(await res.json());
+      const routes = await fetchLocalRoutes();
+      return routes.find((r) => r.id === id) ?? null;
     },
     enabled: !!id,
   });
 }
 
-// POST /api/routes
+// 本地 JSON 模式下不支援新增（Vercel 靜態部署無法寫入）
 export function useCreateRoute() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async (data: InsertRoute) => {
-      const res = await fetch(api.routes.create.path, {
-        method: api.routes.create.method,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-        credentials: "include",
-      });
-      if (!res.ok) {
-        if (res.status === 400) {
-          const error = api.routes.create.responses[400].parse(await res.json());
-          throw new Error(error.message);
-        }
-        throw new Error('Failed to create route');
-      }
-      return api.routes.create.responses[201].parse(await res.json());
+    mutationFn: async (_data: InsertRoute) => {
+      throw new Error("目前為靜態模式：無法新增路線（僅讀取 /data.json）");
     },
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: [api.routes.list.path] }),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["local-routes"] }),
   });
 }
